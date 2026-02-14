@@ -38,7 +38,7 @@ cursor:pointer;
 margin-top:15px;
 }
 
-/* hearts */
+/* floating hearts */
 .heart{
 position:absolute;
 width:18px;
@@ -76,15 +76,16 @@ border-radius:50%;
 </div>
 
 <script>
-
-/* TYPEWRITER LOVE TEXT */
 function startLove(){
 
-let message = "Tumhari smile meri favourite jagah hai... 💗\nNo matter what… I am always there for you 🌸";
+let message = "Happy Valentine's Day Bhumi ❤️🌸\nTum meri life ki sabse soft aur beautiful feeling ho...\nNo matter what, I am always there for you 🫶";
+
 let i = 0;
-let speed = 50;
+let speed = 40;
 let el = document.getElementById("text");
+
 el.innerHTML = "";
+el.style.whiteSpace = "pre-line"; // allows \n line break
 
 function typing(){
 if(i < message.length){
@@ -96,7 +97,7 @@ setTimeout(typing, speed);
 typing();
 }
 
-/* FLOATING HEARTS */
+/* floating hearts animation */
 setInterval(()=>{
 let h=document.createElement("div");
 h.className="heart";
@@ -104,8 +105,8 @@ h.style.left=Math.random()*100+"vw";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),6000);
 },300);
-
 </script>
 
 </body>
 </html>
+
