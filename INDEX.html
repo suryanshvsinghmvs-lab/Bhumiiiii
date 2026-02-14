@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Bhumi ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(45deg,#ffd1dc,#ffe6f0);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+text-align:center;
+box-shadow:0 15px 40px rgba(0,0,0,0.2);
+max-width:320px;
+}
+
+h1{color:#ff4d6d;}
+
+button{
+padding:12px 22px;
+border:none;
+border-radius:10px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin-top:15px;
+}
+
+/* floating hearts */
+.heart{
+position:absolute;
+width:18px;
+height:18px;
+background:red;
+transform:rotate(45deg);
+animation:float 6s linear infinite;
+}
+
+.heart:before,.heart:after{
+content:"";
+width:18px;
+height:18px;
+background:red;
+position:absolute;
+border-radius:50%;
+}
+
+.heart:before{top:-9px;}
+.heart:after{left:-9px;}
+
+@keyframes float{
+0%{transform:translateY(0) rotate(45deg);}
+100%{transform:translateY(-900px) rotate(45deg);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+<h1>Hi Bhumi ❤️</h1>
+<p id="text">I made something special for you… tap below 🫶</p>
+<button onclick="startLove()">Tap Me</button>
+</div>
+
+<script>
+function startLove(){
+
+let message = "Happy Valentine's Day Bhumi ❤️🌸\nTum meri life ki sabse soft aur beautiful feeling ho...\nNo matter what, I am always there for you 🫶";
+
+let i = 0;
+let speed = 40;
+let el = document.getElementById("text");
+
+el.innerHTML = "";
+el.style.whiteSpace = "pre-line"; // allows \n line break
+
+function typing(){
+if(i < message.length){
+el.innerHTML += message.charAt(i);
+i++;
+setTimeout(typing, speed);
+}
+}
+typing();
+}
+
+/* floating hearts animation */
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="heart";
+h.style.left=Math.random()*100+"vw";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
